@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body class="min-h-screen bg-theme-bg font-serif">
+    <header class="p-8 bg-theme-secondary shadow-md sticky top-0 md:block hidden ">
+        <section class="grid place-items-center">
+            <button class="add-book-button text-theme-secondary bg-theme-primary border-4 border-theme-primary px-7 py-3.5 rounded-2xl font-bold text-4xl hover:bg-theme-secondary hover:text-theme-primary">NEW BOOK</button>
+        </section>
+    </header>
+    <main class="max-w-7xl mx-auto">
+        <section id="book-form" class="fixed top-0 left-0 w-screen h-screen place-items-center hidden opacity-95">
+            <form action="" class="rounded-xl bg-theme-primary text-theme-secondary text-2xl p-16 flex flex-col">
+                <label class="mb-2" for="title">Title</label>
+                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="title" id="title">
+                 
+                <label class="mb-2" for="author">Author</label>
+                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="author" id="author">
+
+                <label class="mb-2" for="pages">No. Pages</label>
+                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="pages" id="pages">
+
+                <label class="mb-2" for="read">Read or Not</label>
+                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="read" id="read">
+
+                <hr class=" w-2/3 self-center my-2">
+
+                <div class="flex justify-center mt-6 gap-6">
+                    <button id="cancel" class="rounded-md bg-theme-secondary text-theme-primary font-bold px-4 py-2 border-4 border-theme-secondary hover:bg-theme-primary hover:text-theme-secondary" type="button">Cancel</button>
+                    <button id="submit" class="flex-auto rounded-md bg-theme-secondary text-theme-primary font-bold px-4 py-2 border-4 border-theme-secondary hover:bg-theme-primary hover:text-theme-secondary" type="submit">Submit</button>
+                </div>
+            </form>
+        </section>
+        <section class=" py-6 grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
+                <p class="font-bold text-3xl">Harry Potter</p>
+                <p>JK ROWLING</p>
+                <p>326 pages</p>
+                <p>Read: No</p>
+            </div>
+            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
+                <p class="font-bold text-3xl">Harry Potter</p>
+                <p>JK ROWLING</p>
+                <p>326 pages</p>
+                <p>Read: No</p>
+            </div>
+            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
+                <p class="font-bold text-3xl">Harry Potter</p>
+                <p>JK ROWLING</p>
+                <p>326 pages</p>
+                <p>Read: No</p>
+            </div>
+            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
+                <p class="font-bold text-3xl">Harry Potter</p>
+                <p>JK ROWLING</p>
+                <p>326 pages</p>
+                <p>Read: No</p>
+            </div>
+            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
+                <p class="font-bold text-3xl">Harry Potter</p>
+                <p>JK ROWLING</p>
+                <p>326 pages</p>
+                <p>Read: No</p>
+            </div>
+            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
+                <p class="font-bold text-3xl">Harry Potter</p>
+                <p>JK ROWLING</p>
+                <p>326 pages</p>
+                <p>Read: No</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
