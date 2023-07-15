@@ -7,26 +7,26 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js"></script>
 </head>
-<body class="min-h-screen bg-theme-bg font-serif">
+<body class="min-h-screen bg-theme-bg font-serif md:">
     <header class="p-8 bg-theme-secondary shadow-md sticky top-0 md:block hidden ">
         <section class="grid place-items-center">
             <button class="add-book-button text-theme-secondary bg-theme-primary border-4 border-theme-primary px-7 py-3.5 rounded-2xl font-bold text-4xl hover:bg-theme-secondary hover:text-theme-primary">NEW BOOK</button>
         </section>
     </header>
     <main class="max-w-7xl mx-auto">
-        <section id="book-form" class="fixed top-0 left-0 w-screen h-screen place-items-center hidden opacity-95">
-            <form action="" class="rounded-xl bg-theme-primary text-theme-secondary text-2xl p-16 flex flex-col">
-                <label class="mb-2" for="title">Title</label>
-                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="title" id="title">
+        <section id="book-section" class="fixed top-0 left-0 w-screen h-screen place-items-center hidden opacity-95">
+            <form id="book-form" action="" class="rounded-xl bg-theme-primary text-theme-secondary text-2xl p-16 flex flex-col">
+                <label class="mb-2" for="title">Title *</label>
+                <input class="mb-6 border-4 border-theme-primary rounded-[0.5rem] text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="title" id="title">
                  
-                <label class="mb-2" for="author">Author</label>
-                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="author" id="author">
+                <label class="mb-2" for="author">Author *</label>
+                <input class="mb-6 border-4 border-theme-primary rounded-[0.5rem] text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="author" id="author">
 
-                <label class="mb-2" for="pages">No. Pages</label>
-                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="pages" id="pages">
+                <label class="mb-2" for="pages">No. of Pages *</label>
+                <input class="mb-6 border-4 border-theme-primary rounded-[0.5rem] text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="pages" id="pages">
 
-                <label class="mb-2" for="read">Read or Not</label>
-                <input class="mb-6 rounded text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="read" id="read">
+                <label class="mb-2" for="read">Already read (Yes/No) *</label>
+                <input class="mb-6 border-4 border-theme-primary rounded-[0.5rem] text-theme-text px-1 focus:outline-theme-secondary focus:" type="text" name="read" id="read">
 
                 <hr class=" w-2/3 self-center my-2">
 
@@ -36,44 +36,18 @@
                 </div>
             </form>
         </section>
-        <section class=" py-6 grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
-            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
-                <p class="font-bold text-3xl">Harry Potter</p>
-                <p>JK ROWLING</p>
-                <p>326 pages</p>
-                <p>Read: No</p>
+
+        <div id="template" class="col-span-1 hidden bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl p-6  flex-col gap-8">
+            <h2 id="title-template" class="font-bold text-3xl"></h2>
+            <p id="author-template"></p>
+            <p id="pages-template"></p>
+            <p id="read-template"></p>
+            <div class="flex justify-center gap-4">
+                <button class=" text-theme-secondary bg-theme-primary border-4 border-theme-primary px-4 py-1 rounded-xl font-bold text-xl hover:bg-theme-secondary hover:text-theme-primary">Delete</button>
+                <button class="flex-auto text-theme-secondary bg-theme-primary border-4 border-theme-primary px-4 py-1 rounded-xl font-bold text-xl hover:bg-theme-secondary hover:text-theme-primary">Edit</button>
             </div>
-            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
-                <p class="font-bold text-3xl">Harry Potter</p>
-                <p>JK ROWLING</p>
-                <p>326 pages</p>
-                <p>Read: No</p>
-            </div>
-            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
-                <p class="font-bold text-3xl">Harry Potter</p>
-                <p>JK ROWLING</p>
-                <p>326 pages</p>
-                <p>Read: No</p>
-            </div>
-            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
-                <p class="font-bold text-3xl">Harry Potter</p>
-                <p>JK ROWLING</p>
-                <p>326 pages</p>
-                <p>Read: No</p>
-            </div>
-            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
-                <p class="font-bold text-3xl">Harry Potter</p>
-                <p>JK ROWLING</p>
-                <p>326 pages</p>
-                <p>Read: No</p>
-            </div>
-            <div class="bg-[#ffedd5] shadow-xl rounded-2xl border-l-8 border-theme-accent text-center text-2xl py-6 flex flex-col gap-8">
-                <p class="font-bold text-3xl">Harry Potter</p>
-                <p>JK ROWLING</p>
-                <p>326 pages</p>
-                <p>Read: No</p>
-            </div>
-        </section>
+        </div>
+        <section id="books" class=" py-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8"></section>
     </main>
 </body>
 </html>
