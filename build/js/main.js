@@ -2,7 +2,7 @@ const initApp = () => {
     const openButtons = document.querySelectorAll(".add-book-button");
     const cancelButton = document.getElementById("cancel");
     const submitButton = document.querySelector("[type='submit']");
-
+    
     const formSection = document.getElementById("book-section");
     const bookForm = document.getElementById("book-form");
     const titleInput = document.getElementById("title");
@@ -25,12 +25,18 @@ const initApp = () => {
         myLibrary.push(book);
     }
 
+    function removeBookFromLibrary(bookIndex) {
+        myLibrary.splice(bookIndex, 1);
+    }
+
     function toggleForm() {
         formSection.classList.toggle("hidden");
         formSection.classList.toggle("grid");
     }
 
     function displayBooks(myLibrary) {
+        document.getElementById("books").innerHTML = "";
+        let index = 0;
         myLibrary.forEach((book) => {
             let templateClone = document.getElementById("template").cloneNode(true);
             templateClone.querySelector("#title-template").textContent = book.title;
@@ -39,7 +45,15 @@ const initApp = () => {
             templateClone.querySelector("#read-template").textContent = `Read: ${book.readOrNot}`;
             templateClone.classList.remove("hidden");
             templateClone.classList.add("flex");
+            templateClone.dataset.index = index;
+
+            templateClone.querySelector(".delete-button").addEventListener("click", () => {
+                removeBookFromLibrary(templateClone.dataset.index);
+                displayBooks(myLibrary);
+            });
+
             document.getElementById("books").appendChild(templateClone);
+            index++;
         });
     }
 
@@ -62,14 +76,14 @@ const initApp = () => {
         formInputs.forEach(input => { /* Maybe should use for of */
             if (input.value.trim() === "") {
                 if(!input.classList.contains("border-red-600")) {
-                    input.classList.toggle("border-theme-secondary");
+                    input.classList.toggle("border-theme-primary");
                     input.classList.toggle("border-red-600");
                 }
                 atLeastOne = true;
             }
             else {
                 if(input.classList.contains("border-red-600")) {
-                    input.classList.toggle("border-theme-secondary");
+                    input.classList.toggle("border-theme-primary");
                     input.classList.toggle("border-red-600");
                 };
             }
@@ -82,7 +96,6 @@ const initApp = () => {
             readInput.value);
 
         bookForm.reset();
-        document.getElementById("books").innerHTML = "";
         addBookToLibrary(newBook);
         displayBooks(myLibrary);
         toggleForm();
