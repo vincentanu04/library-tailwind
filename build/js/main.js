@@ -52,6 +52,11 @@ const initApp = () => {
                 displayBooks(myLibrary);
             });
 
+            templateClone.querySelector(".edit-button").addEventListener("click", () => {
+                book.readOrNot = book.readOrNot.toLowerCase().trim() === "yes" ? "No" : "Yes";
+                displayBooks(myLibrary);
+            });
+
             document.getElementById("books").appendChild(templateClone);
             index++;
         });
